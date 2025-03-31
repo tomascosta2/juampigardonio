@@ -26,5 +26,5 @@ body {
 }
 
 .ch-btn {
-	@apply bg-[#FF7010] text-center md:px-[100px] py-6 text-white font-semibold rounded-sm mx-auto block w-full md:w-fit cursor-pointer leading-[120%];
+	@apply bg-[#FF7010] text-[14px] md:text-[16px] text-center md:px-[100px] py-6 text-white font-semibold rounded-sm mx-auto block w-full md:w-fit cursor-pointer leading-[120%];
 }
