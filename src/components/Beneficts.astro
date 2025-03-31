@@ -1,0 +1,50 @@
+---
+const BENEFICIOS = [
+	{
+		icono: '/images/icono-1.svg',
+		titulo: 'Ganancia muscular y perdida de grasa',
+		texto: 'Te voy a enseñar el paso a paso para que logres resultados notables y duraderos.'
+	},
+	{
+		icono: '/images/icono-2.svg',
+		titulo: 'Cuerpo estetico y mayor confianza',
+		texto: 'Vas a lograr tu mejor versión, vamos a buscar una figura estética para que te sientas conforme, cómodo y seguro.'
+	},
+	{
+		icono: '/images/icono-3.svg',
+		titulo: 'Eleva tu energia y bienestar personal',
+		texto: 'No solo va a cambiar tu físico, si no que dejarás atrás las frustraciones para experimentar un bienestar general que te hará sentir mejor con vos mismo.'
+	},
+	{
+		icono: '/images/icono-4.svg',
+		titulo: 'Libertad en tu alimentación',
+		texto: 'Vas a aprender a variar tus alimentos respetando tus necesidades nutricionales, para alcanzar tus objetivos sin dejar de compartir momentos con amigos y familia.'
+	},
+]
+---
+
+<section class="py-[80px] md:py-[100px]">
+	<div class="tcp-container">
+		<h2 class="max-w-[547px] mx-auto text-[24px] md:text-[36px] font-bold text-center leading-[120%]">¿Qué vas a conseguir con este programa?</h2>
+		<div class="w-[750px] max-w-full mx-auto grid md:grid-cols-2 gap-2 mt-8">
+			{
+				BENEFICIOS.map((beneficio) => {
+					return (
+						<div class="border border-[#111]/10 p-8 rounded-sm">
+							<img src={beneficio.icono} alt={beneficio.titulo}>
+							<h5 class="text-[22px] font-semibold leading-[110%] my-4">{beneficio.titulo}</h5>
+							<p class="text-[#111]/80 leading-[120%] text-[14px]">{beneficio.texto}</p>
+						</div>
+					)
+				})
+			}
+		</div>
+		<div class="mt-8">
+			<button class="ch-btn open-popup">Aplica al Programa Ahora »</button
+			>
+			<p class="text-[#111]/80 text-center text-[12px] md:text-[14px] mt-4">
+				Cupos limitados | Programa exclusivo
+			</p>
+		</div>
+	</div>
+</section>
