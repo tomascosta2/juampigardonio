@@ -1,0 +1,74 @@
+---
+const PREGUNTAS = [
+  {
+    pregunta: "¿Pregunta?",
+    respuesta: "Respuesta."
+  },
+  {
+    pregunta: "¿Pregunta?",
+    respuesta: "Respuesta."
+  },
+];
+---
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const faqItems = document.querySelectorAll(".faq-item");
+
+		faqItems.forEach((item, index) => {
+			item.addEventListener("click", () => {
+				const content = item.querySelector(".faq-content") || item;
+				const icon = item.querySelector(".icon") || item;
+
+				const isOpen = content.classList.contains("max-h-[2000px]");
+
+				document.querySelectorAll(".faq-content").forEach((faq) => {
+					faq.classList.remove("max-h-[2000px]");
+					faq.classList.add("max-h-0");
+				});
+
+				document.querySelectorAll(".icon").forEach((svg) => {
+					svg.classList.remove("rotate-45");
+				});
+
+				if (!isOpen) {
+					content.classList.add("max-h-[2000px]");
+					content.classList.remove("max-h-0");
+					icon.classList.add("rotate-45");
+				}
+			});
+		});
+	});
+</script>
+
+<section id="faqs" class="relative py-[80px] lg:py-[100px] px-4">
+	<div class="tc-container">
+		<h2 class="max-w-[1050px] mx-auto text-[24px] md:text-[36px] font-bold text-center leading-[120%] text-[#FFF]">¿Alguna duda?</h2>
+		<div class="max-w-[800px] mx-auto mt-8">
+			{
+				PREGUNTAS.map((item, index) => (
+					<div
+						class="faq-item w-full cursor-pointer bg-primary p-[20px] not-last:border-b border-[#FFF]/20"
+						data-index={index}
+					>
+						<h3 class="text-[16px] md:text-[18px] text-[#FFF] font-medium flex justify-between items-center">
+							{item.pregunta}
+							<svg
+								class="icon min-w-[20px] size-[20px] transition-all duration-300"
+								fill="#FFF"
+								viewBox="0 0 448 512"
+							>
+								<path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+							</svg>
+						</h3>
+						<div class="faq-content normal-case overflow-hidden duration-500 transition-all max-h-0">
+							<p class="text-[#FFF]/80 text-[16px] pt-[10px]">
+								{item.respuesta}
+							</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
